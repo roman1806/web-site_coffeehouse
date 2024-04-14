@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кофейня "Умный вкус"</title>
+    <style>
+        /* Общие стили */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+        h1 {
+            margin: 0;
+        }
+        footer {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 12px;
+        }
+
+        /* Стили для header */
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        /* Стили для навигации */
+        nav {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            overflow: hidden;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            display: inline-block;
+        }
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        nav a.active {
+            background-color: #ddd;
+            color: black;
+        }
+
+        /* Стили для секций */
+        section {
+            padding: 20px;
+            background-color: white;
+            margin-bottom: 20px;
+        }
+        section img {
+            display: block;
+            margin: auto;
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        /* Стили для формы заказа */
+        .order-form-container {
+            background-color: #f9f9f9;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 90%;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .order-form-container h2 {
+            margin-top: 0;
+            text-align: center;
+        }
+        .order-form-container input[type="text"],
+        .order-form-container input[type="email"],
+        .order-form-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .order-form-container input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 15px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .order-form-container input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        /* Стили для кнопки "Вернуться наверх" */
+        #toTopBtn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 99;
+        }
+
+        /* Стили для меню */
+        #menu ul {
+            text-align: center;
+        }
+        #menu li {
+            display: inline-block;
+            vertical-align: top;
+            margin: 0 10px;
+        }
+
+        /* Медиа-запросы */
+        @media only screen and (max-width: 768px) {
+            nav a {
+                padding: 10px;
+            }
+            .order-form-container {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Добро пожаловать в кофейню "Умный вкус"</h1>
+    </header>
+    <nav>
+        <a href="#home" class="active">Главная</a>
+        <a href="#menu">Меню</a>
+        <a href="#about">О нас</a>
+        <a href="#special-offers">Специальные предложения</a>
+        <a href="#coffee-origin">Происхождение кофе</a>
+        <a href="#contact">Контакты</a>
+    </nav>
+    <section id="home">
+        <h2>Главная</h2>
+        <p>Добро пожаловать на главную страницу кофейни "Умный вкус". Здесь вы можете насладиться широким выбором кофейных напитков, приготовленных по самым высоким стандартам качества. Погрузитесь в мир аромата и вкуса вместе с нами!</p>
+    </section>
+    <section id="menu">
+        <h2>Меню</h2>
+        <p>Ознакомьтесь с нашим разнообразным выбором кофе и других напитков.</p>
+        <ul>
+            <li>
+                <p>Эспрессо</p>
+                <p>150 руб.</p>
+                <img src="https://shop.samovartime.ru/image/catalog/%20статьи/closeup-of-classic-fresh-espresso-served-on-dark-surface_1220-5375.jpg" width="300" height="200" alt="Эспрессо">
+                <button onclick="addToCart('Эспрессо', 150)">Добавить в корзину</button>           
+            </li>
+            <!-- Другие элементы меню -->
+            <li>
+                <p>Американо</p>
+                <p>160 руб.</p>
+                <img src="https://avatars.dzeninfra.ru/get-zen_doc/271828/pub_65605c87a767964d45b88dde_65605c98368ff544362c2655/scale_1200" width="300" height="200" alt="Американо">
+                <button onclick="addToCart('Американо', 160)">Добавить в корзину</button>
+            </li>
+        </ul>
+    </section>
+    <section id="about">
+        <h2>О нас</h2>
+        <p>Кофейня "Умный вкус" - это место, где встречаются уютная атмосфера, высокое качество и инновационные подходы. Мы предлагаем не только отличный кофе, но и интеллектуальный опыт. Наша команда занимается исследованиями в области кофейной индустрии, чтобы обеспечить вам лучший продукт. Мы уделяем особое внимание деталям - от выбора зерен до приготовления каждого напитка. Посетите нас, чтобы узнать больше о нашем пути к совершенству и насладиться вкусом кофе, который мы с гордостью предлагаем.</p>
+    </section>
+    <section id="special-offers">
+        <h2>Специальные предложения</h2>
+        <p>Мы постоянно радуем наших клиентов специальными предложениями и акциями. Подписывайтесь на нашу рассылку, чтобы быть в курсе всех текущих скидок и бонусов. Кроме того, следите за нашими социальными сетями, где мы публикуем эксклюзивные предложения и конкурсы. В кофейне "Умный вкус" всегда найдется что-то особенное для вас!</p>
+    </section>
+    <section id="coffee-origin">
+        <h2>Происхождение кофе</h2>
+        <p>Кофе происходит из различных стран и регионов по всему миру, каждый из которых придает напитку свой неповторимый характер. Некоторые из самых известных стран-производителей кофе включают Эфиопию, Колумбию, Бразилию и Кению. Каждая из этих стран имеет свои уникальные климатические условия и почвенные характеристики, которые влияют на вкус и аромат кофе. Мы в кофейне "Умный вкус" гордимся представлением кофе с различных уголков мира, чтобы наши клиенты могли насладиться всем разнообразием его вкусовых качеств.</p>
+    </section>
+    <section id="contact">
+        <h2>Контакты</h2>
+        <p>Вы всегда можете связаться с нами, чтобы задать вопросы или оставить отзыв. Наша кофейня находится по адресу: ул. Пушкина, д. 10, г. Санкт-Петербург. Телефон для контактов: +7-917-177-17-17 Мы также доступны на электронной почте info@umnyivkus.com. Следите за нами в социальных сетях: Facebook, Instagram, Twitter, чтобы быть в курсе всех новостей и событий. Мы всегда рады видеть вас в нашем заведении!</p>
+    </section>
+    <section id="order-form" class="order-form-container">
+        <h2>Оформление заказа</h2>
+        <form id="orderForm" action="#" method="post">
+            <label for="name">Имя:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="cart">Ваш заказ:</label>
+            <div id="cart"></div>
+
+            <label for="total">Итого:</label>
+            <input type="text" id="total" name="total" readonly>
+
+            <input type="submit" value="Отправить заказ">
+        </form>
+    </section>
+    <footer>
+        <p>Кофейня "Умный вкус" &copy; 2024. Все права защищены.</p>
+    </footer>
+    <button id="toTopBtn" title="Вернуться наверх">^</button>
+    <script>
+        // Функция для добавления товара в корзину
+        var cart = [];
+
+        function addToCart(itemName, itemPrice) {
+            var newItem = {
+                name: itemName,
+                price: itemPrice
+            };
+            cart.push(newItem);
+            showCart();
+        }
+
+        // Функция для удаления товара из корзины
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            showCart();
+        }
+
+        // Функция для отображения корзины
+        function showCart() {
+            var cartDiv = document.getElementById('cart');
+            cartDiv.innerHTML = '';
+            var total = 0;
+            cart.forEach(function(item, index) {
+                var itemDiv = document.createElement('div');
+                itemDiv.textContent = item.name + ' - ' + item.price + ' руб.';
+                var removeBtn = document.createElement('button');
+                removeBtn.textContent = 'Удалить';
+                removeBtn.setAttribute('onclick', 'removeFromCart(' + index + ')');
+                itemDiv.appendChild(removeBtn);
+                cartDiv.appendChild(itemDiv);
+                total += item.price;
+            });
+            document.getElementById('total').value = total + ' руб.';
+        }
+
+        // Обработка отправки формы заказа
+        document.getElementById('orderForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var orderData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                order: cart.map(function(item) {
+                    return item.name + ' - ' + item.price + ' руб.';
+                }).join('\n'),
+                total: document.getElementById('total').value
+            };
+            // Здесь можно отправить данные на сервер или выполнить другие действия, например, показать уведомление
+            alert('Ваш заказ отправлен!');
+
+            // Очистка формы и корзины
+            document.getElementById('name').value = '';
+            document.getElementById('email').value = '';
+            cart = [];
+            showCart();
+
+            // Дополнительные действия при успешной отправке заказа
+        });
+
+        // Скрипты для кнопки "Вернуться наверх" и активации/деактивации пунктов меню
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("toTopBtn").style.display = "block";
+            } else {
+                document.getElementById("toTopBtn").style.display = "none";
+            }
+        }
+
+        document.getElementById("toTopBtn").onclick = function() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        };
+
+        var navLinks = document.querySelectorAll('nav a');
+
+        window.addEventListener('scroll', function () {
+            var currentSection = '';
+            sections.forEach(function(section) {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - sectionHeight / 3) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(function(navLink) {
+                navLink.classList.remove('active');
+                if (navLink.getAttribute('href').substring(1) === currentSection) {
+                    navLink.classList.add('active');
+                }
+            });
+        });
+
+        navLinks.forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                var targetId = this.getAttribute('href').substring(1);
+                var targetSection = document.getElementById(targetId);
+                window.scrollTo({
+                    top: targetSection.offsetTop,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
